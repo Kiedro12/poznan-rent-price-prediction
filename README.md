@@ -1,2 +1,43 @@
-# poznan-rent-price-prediction
-Machine learning pipeline for predicting apartment rental prices in Poznań using incomplete tabular and textual listing data.
+# Poznań Rent Price Prediction
+
+Machine learning pipeline for predicting apartment rental prices in Poznań using incomplete tabular and textual real-estate listing data.
+
+## Project overview
+
+The goal of this project is to predict apartment rental prices based on structured listing attributes and textual descriptions. The dataset contains missing values, categorical variables, numerical features and free-text fields, which makes it a practical tabular machine learning problem with incomplete data.
+
+## Methods
+
+The solution includes:
+
+- data preprocessing and missing value handling,
+- feature engineering for numerical and categorical variables,
+- text feature extraction using TF-IDF,
+- dimensionality reduction with TruncatedSVD,
+- model training with LightGBM, XGBoost and Ridge regression,
+- out-of-fold validation,
+- final stacking ensemble using polynomial Ridge regression.
+
+## Results
+
+| Model | Validation strategy | OOF MSE |
+|---|---:|---:|
+| LightGBM tabular | 5-fold CV | 90,326 |
+| XGBoost tabular | 5-fold CV | 89,817 |
+| TF-IDF + Ridge | 5-fold CV | 155,122 |
+| LightGBM + SVD text | 5-fold CV | 82,691 |
+| Polynomial Ridge Stack | 5-fold CV | 75,757 |
+
+The final stacked model achieved the best validation performance with an OOF MSE of approximately **75,757**.
+
+## Repository structure
+
+```text
+.
+├── data/
+├── notebooks/
+│   └── poznan_rent_price_prediction.ipynb
+├── outputs/
+├── .gitignore
+├── LICENSE
+└── README.md
