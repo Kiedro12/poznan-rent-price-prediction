@@ -35,9 +35,14 @@ The final stacked model achieved the best validation performance with an OOF MSE
 ```text
 .
 ├── data/
+│   ├── pzn-rent-train.csv
+│   ├── pzn-rent-test.csv
+│   └── pzn-sample-sub.csv
 ├── notebooks/
 │   └── poznan_rent_price_prediction.ipynb
 ├── outputs/
+│   └── submission_polystack.csv
 ├── .gitignore
 ├── LICENSE
-└── README.md
+├── README.md
+└── requirements.txt
